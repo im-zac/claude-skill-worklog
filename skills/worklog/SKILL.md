@@ -16,7 +16,7 @@ description: 工作紀錄（worklog）artifact 頁：使用者要把這個 sessi
 **B. 新開一頁**（`<scratchpad>` 用系統提示裡的 session scratchpad）：
 1. 複製並命名，標題取 2–4 個字（例：`Safari 登入 500`）。標題不可含 `/`、`&`、`\`、`<`、`>`：
    ```bash
-   sed 's/{{TITLE}}/<標題>/g' ~/.claude/skills/worklog/page/worklog.html > <scratchpad>/worklog-<短名>.html
+   sed 's/{{TITLE}}/<標題>/g' ${CLAUDE_SKILL_DIR}/page/worklog.html > <scratchpad>/worklog-<短名>.html
    grep -c '<標題>' <scratchpad>/worklog-<短名>.html   # 要是 2
    ```
 2. 載入 `artifact-capabilities` skill（Artifact 工具規定傳 `capabilities` 前要載入），然後直接發布範本：`file_path` 指向該檔、`icon: "list"`、`capabilities: {"db": {}}`、一句 `description`。

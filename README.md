@@ -13,13 +13,20 @@ Claude Code skill。把一個 session 的工作、進度、決策記在一個隨
 
 ## 安裝
 
-把這個 repo 放到 `~/.claude/skills/worklog`：
+這個 repo 同時是 Claude Code 的 plugin marketplace。在 Claude Code 裡執行：
 
-```bash
-git clone git@github.com:<你的帳號>/<repo>.git ~/.claude/skills/worklog
+```
+/plugin marketplace add im-zac/claude-skill-worklog
+/plugin install worklog@im-zac
 ```
 
-`SKILL.md` 裡的範本路徑是 `~/.claude/skills/worklog/page/worklog.html`，所以安裝位置要照上面。
+在 shell 裡也可以用 `claude plugin marketplace add im-zac/claude-skill-worklog` 和 `claude plugin install worklog@im-zac`。
+
+更新用 `/plugin update worklog@im-zac`，移除用 `/plugin uninstall worklog@im-zac`。
+
+用 plugin 安裝時，skill 的指令名稱是 `/worklog:worklog`。直接對 Claude 說「開一個 worklog」也會觸發。
+
+不想用 plugin 的話，也可以把 `skills/worklog/` 整個資料夾複製到 `~/.claude/skills/worklog/`。
 
 ## 使用
 
@@ -32,10 +39,11 @@ git clone git@github.com:<你的帳號>/<repo>.git ~/.claude/skills/worklog
 
 | 檔案 | 用途 |
 |--|--|
-| `SKILL.md` | skill 本體：啟動流程、資料格式、決策卡、通知規則、寫入方式 |
-| `page/worklog.html` | artifact 頁面範本，`{{TITLE}}` 會在啟動時換成標題 |
+| `.claude-plugin/` | plugin 與 marketplace 的描述檔 |
+| `skills/worklog/SKILL.md` | skill 本體：啟動流程、資料格式、決策卡、通知規則、寫入方式 |
+| `skills/worklog/page/worklog.html` | artifact 頁面範本，`{{TITLE}}` 會在啟動時換成標題 |
 
-資料格式（`meta/session`、`items/<id>`、`log/<id>`、`decisions/D-NNN`）見 `SKILL.md` 的〈資料〉。
+資料格式（`meta/session`、`items/<id>`、`log/<id>`、`decisions/D-NNN`）見 `skills/worklog/SKILL.md` 的〈資料〉。
 
 ## 授權
 
