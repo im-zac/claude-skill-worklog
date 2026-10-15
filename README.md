@@ -1,5 +1,14 @@
 # worklog
 
+> **這個 repo 已搬到 [im-zac/zac-skills](https://github.com/im-zac/zac-skills/tree/main/plugins/worklog)，這裡不再更新。** 請改用：
+>
+> ```
+> /plugin marketplace add im-zac/zac-skills
+> /plugin install worklog@zac-skills
+> ```
+>
+> 已經用 `worklog@im-zac` 安裝的版本照樣可以用，但不會再收到更新。
+
 Claude Code skill。把一個 session 的工作、進度、決策記在一個隨時能打開看的 artifact 頁面。
 
 頁面只發布一次。之後每有進展，Claude 就用 `ArtifactData` 寫入頁面的 `db`，頁面即時更新。有重要進展或需要決策時，Claude 會用 `PushNotification` 通知你。
